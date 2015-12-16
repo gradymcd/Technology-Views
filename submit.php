@@ -22,6 +22,7 @@
 				$options = unserialize($row['choices']);
 				foreach ($options as $key => $value) {
 					echo('<input type="radio" name="' . $row['id'] . '" id="' . $row['id'] . $key . '">');
+					echo('$key');
 				}
 				echo('</div>');
 			}
