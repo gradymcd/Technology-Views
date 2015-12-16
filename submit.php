@@ -6,7 +6,13 @@
 </head>
 <body>
 <h3 class="well">
-
+	<?php
+		include('db.php');
+		$result = $db->query("SELECT * from `data`");
+		while ($row = $result->fetch_assoc()) {
+			echo($row['question']);
+		}
+	?>
 </h3>
 
 </body>
