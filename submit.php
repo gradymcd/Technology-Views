@@ -1,5 +1,5 @@
 <?php
-	if (isset($_GET['submitted'])) {
+	if (isset($_POST['submitted'])) {
 		header('Location: results.php');
 	}
 ?>
@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-	<form role="form">
+	<form role="form" action="submit.php" method="post">
 		<?php
 			include('db.php');
 			$result = $db->query("SELECT * from `data`");
