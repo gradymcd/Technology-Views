@@ -17,7 +17,7 @@
 		while ($row = $result->fetch_assoc()) {
 			echo('<div class="form-group">');
 			echo('<label for="' . $row['question'] . '"></label>');
-			$options = unserialize($row['options']);
+			$options = unserialize($row['choices']);
 			foreach($options as $option) {
 				echo('<input type="radio" name="' . $row['id'] . '" id="' . $row['id'] . $option .  '"');
 			}
