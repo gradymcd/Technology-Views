@@ -1,3 +1,8 @@
+<?php
+	if (isset($_GET['submitted'])) {
+		header('Location: results.php');
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,15 +10,19 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/paper/bootstrap.min.css">
 </head>
 <body>
-<h3 class="well">
+<form role="form">
 	<?php
 		include('db.php');
 		$result = $db->query("SELECT * from `data`");
 		while ($row = $result->fetch_assoc()) {
-			echo($row['question']);
+			echo('<div class="form-group">');
+			echo('<label for="' . $row['question'] . '"></label>');
+			$options = unserialize($row['options']);
+			foreach($options as $option) {
+				echo('<input type="radio" name="' . $row['id'] . '" id="' . $row['id'] . $option .  '"');
+			}
 		}
 	?>
-</h3>
-
+</form>
 </body>
 </html>
