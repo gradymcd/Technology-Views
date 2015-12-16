@@ -1,5 +1,5 @@
 <?php
-	if (isset($_POST['submit'])) {
+	if (!empty($_POST)) {
 		header('Location: results.php');
 	}
 ?>
