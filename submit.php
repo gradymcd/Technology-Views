@@ -1,6 +1,13 @@
 <?php
+	$result = $db->query("SELECT * from `data`");
 	if (!empty($_POST)) {
-		header('Location: results.php');
+		while ($row = $result->fetch_assoc()) {
+			$choices = unserialize($row['choices']);
+			$answer = $_POST[$row['id']];
+			$choices[$answer]++;
+			$serialized = serialize($choices);
+			$query = $db->query("UPDATE data SET choices='$serialized' WHERE id=" . $row['id']);
+		}
 	}
 ?>
 <!DOCTYPE html>
@@ -11,17 +18,15 @@
 </head>
 <body>
 <div class="container">
-	<form role="form" action="submit.php" method="post" id="submit">
+	<form role="form" method="post" id="submit">
 		<?php
-			include('db.php');
-			$result = $db->query("SELECT * from `data`");
 			while ($row = $result->fetch_assoc()) {
 				echo('<div class="form-group">');
 				echo('<h3> ' . $row['question'] . ' </h3>');
 				echo('<label for="' . $row['question'] . '"></label>');
-				$options = unserialize($row['choices']);
-				foreach ($options as $key => $value) {
-					echo('<input type="radio" name="' . $row['id'] . '" id="' . $row['id'] . $key . '">');
+				$choices = unserialize($row['choices']);
+				foreach ($choices as $key => $value) {
+					echo('<input type="radio" name="' . $row['id'] . '" value="' . $key . '">');
 					echo($key . '<br>');
 				}
 				echo('</label>');
