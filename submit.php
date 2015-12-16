@@ -21,6 +21,7 @@
 			foreach($options as $option) {
 				echo('<input type="radio" name="' . $row['id'] . '" id="' . $row['id'] . $option .  '"');
 			}
+			echo('</div>');
 		}
 	?>
 </form>
