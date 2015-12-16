@@ -18,8 +18,8 @@
 			echo('<div class="form-group">');
 			echo('<label for="' . $row['question'] . '"></label>');
 			$options = unserialize($row['choices']);
-			foreach($options as $option) {
-				echo('<input type="radio" name="' . $row['id'] . '" id="' . $row['id'] . $option .  '"');
+			foreach($options as $key=>$value) {
+				echo('<input type="radio" name="' . $row['id'] . '" id="' . $row['id'] . $key .  '"');
 			}
 			echo('</div>');
 		}
