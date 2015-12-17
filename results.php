@@ -34,7 +34,7 @@
 			<?php
 				$result = $db->query("SELECT * from data");
 				while ($row = $result->fetch_assoc()) {
-					echo('data={' . $row['id']);
+					echo('data=' . $row['id'] . '{');
 					foreach ($choices as $key => $value) {
 						$hue = rand(0, 255);
 						echo('
