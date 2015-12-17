@@ -19,7 +19,7 @@
 					$total += $value;
 				}
 				foreach ($choices as $key => $value) {
-					echo('<p>' . $key . ': ' . $value . ' (' . (($value / $total) * 100) . toFixed() . '%)');
+					echo('<p>' . $key . ': ' . $value . ' (' . (($value / $total) * 100) . '.toFixed()%)');
 					echo('</p>');
 				}
 				echo('</div>');
