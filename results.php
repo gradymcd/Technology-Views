@@ -34,7 +34,7 @@
 		$result = $db->query("SELECT * from data");
 		while ($row = $result->fetch_assoc()) {
 			echo('var data' . $row['id'] . '=[');
-			$step = 300 / (sizeof($choices) - 1);
+			$step = 300 / sizeof($choices);
 			$hue = 0;
 			$choices = unserialize($row['choices']);
 			foreach ($choices as $key => $value) {
