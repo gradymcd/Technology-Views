@@ -34,12 +34,11 @@
 		$result = $db->query("SELECT * from data");
 		while ($row = $result->fetch_assoc()) {
 			echo('var data' . $row['id'] . '=[');
-			$oldHue = 0;
 			$step = 300 / sizeof($choices);
+			$hue = 0;
 			$choices = unserialize($row['choices']);
 			foreach ($choices as $key => $value) {
-				$hue = $oldHue + $step;
-
+				$hue += $step;
 				echo('
 					{
 						value: "' . $value . '",
@@ -48,7 +47,6 @@
 						label: "' . $key . '",
 					},
 				');
-				$oldHue = $hue;
 			}
 			echo('];');
 		}
