@@ -30,11 +30,10 @@
 	        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 	<script type="text/javascript">
-		var data = [
 			<?php
 				$result = $db->query("SELECT * from data");
 				while ($row = $result->fetch_assoc()) {
-					echo('data' . $row['id'] . '=[');
+					echo('var data' . $row['id'] . '=[');
 					foreach ($choices as $key => $value) {
 						$hue = rand(0, 255);
 						echo('
@@ -49,12 +48,11 @@
 					echo('],');
 				}
 			?>
-		];
 		<?php
 			$result = $db->query("SELECT * from data");
 			 while ($row = $result->fetch_assoc()) {
 				echo('
-					var canvas' . $row['id'] .  '  = document.getElementById(data' . $row['id' ]. '").getContext("2d");
+					var canvas' . $row['id'] .  '  = document.getElementById("data' . $row['id' ]. '").getContext("2d");
 					var chart' . $row['id'] . '  = new Chart(canvas' . $row['id'] . ').Pie(data' . $row['id'] .');
 				');
 			}
