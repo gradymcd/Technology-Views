@@ -19,7 +19,7 @@
 				}
 				foreach ($choices as $key => $value) {
 					echo('<p>' . $key . ': ' . $value . ' (' . ($value / $total) * 100 . '%)');
-					echo('<canvas id="' . $key . '"');
+					echo('<canvas id="' . $key . '"></canvas>');
 					echo('</p>');
 				}
 				echo('</div>');
@@ -32,6 +32,7 @@
 	<script type="text/javascript">
 		var data = [
 			<?php
+				$result = $db->query("SELECT * from data");
 				while ($row = $result->fetch_assoc()) {
 					echo($key . 'data={');
 					foreach ($choices as $key => $value) {
