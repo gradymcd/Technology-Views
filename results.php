@@ -19,7 +19,7 @@
 				}
 				foreach ($choices as $key => $value) {
 					echo('<p>' . $key . ': ' . $value . ' (' . ($value / $total) * 100 . '%)');
-					echo('<canvas id="' . $key . '"></canvas>');
+					echo('<canvas id="' . $row . $key . '"></canvas>');
 					echo('</p>');
 				}
 				echo('</div>');
@@ -34,7 +34,7 @@
 			<?php
 				$result = $db->query("SELECT * from data");
 				while ($row = $result->fetch_assoc()) {
-					echo($key . 'data={');
+					echo($row . $key . 'Data={');
 					foreach ($choices as $key => $value) {
 						$hue = rand(0, 255);
 						echo('
@@ -55,7 +55,7 @@
 				foreach ($choices as $key => $value) {
 					echo('
 						var ' . $key . '  = document.getElementById("' . $key . '").getContext("2d");
-						var ' . $key . 'Chart = new Chart(' . $key . ').Pie(' . $key . 'data);
+						var ' . $key . 'Chart = new Chart(' . $key . ').Pie('. $row . $key . 'Data);
 					');
 				}
 			}
