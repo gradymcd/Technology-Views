@@ -37,7 +37,7 @@
 					$oldHue = -1;
 					foreach ($choices as $key => $value) {
 						$hue = -1;
-						while((abs($oldHue-$hue) < 30) && $hue!=-1) {
+						while((abs($oldHue-$hue) < 30) && $hue!=1) {
 							$hue = rand(0, 255);
 						}
 
