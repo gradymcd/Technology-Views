@@ -9,7 +9,7 @@
 	<?php
 	include('db.php');
 	$result = $db->query("SELECT * from data");
-	
+
 	while ($row = $result->fetch_assoc()) {
 		echo('<h3>' . $row['question'] . '</h3><div>');
 		$choices = unserialize($row['choices']);
@@ -34,13 +34,11 @@
 		$result = $db->query("SELECT * from data");
 		while ($row = $result->fetch_assoc()) {
 			echo('var data' . $row['id'] . '=[');
-			$oldHue = -1;
+			$oldHue = 0;
+			$step = 300 / sizeof($choices);
 			$choices = unserialize($row['choices']);
 			foreach ($choices as $key => $value) {
-				$hue = -1;
-				while((abs($oldHue-$hue) < 50) || $hue==-1) {
-					$hue = rand(0, 255);
-				}
+				$hue = $oldHue + $step;
 
 				echo('
 					{
