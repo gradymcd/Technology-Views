@@ -13,8 +13,12 @@
 			while ($row = $result->fetch_assoc()) {
 				echo('<h3>' . $row['question'] . '</h3>');
 				$choices = unserialize($row['choices']);
+				$total = 0;
 				foreach ($choices as $key => $value) {
-					echo('<p>' . $key . ': ' . $value . '</p>');
+					$total += $value;
+				}
+				foreach ($choices as $key => $value) {
+					echo('<p>' . $key . ': ' . $value . ' ('. $value/$total . '%)</p>');
 				}
 			}
 		?>
