@@ -14,12 +14,12 @@
 				echo('<h3>' . $row['question'] . '</h3><div>');
 				$choices = unserialize($row['choices']);
 				$total = 0;
+				echo('<canvas id="canvas' . $row['id'] . '"></canvas>');
 				foreach ($choices as $key => $value) {
 					$total += $value;
 				}
 				foreach ($choices as $key => $value) {
 					echo('<p>' . $key . ': ' . $value . ' (' . ($value / $total) * 100 . '%)');
-					echo('<canvas id="canvas' . $row['id'] . $key . '"></canvas>');
 					echo('</p>');
 				}
 				echo('</div>');
