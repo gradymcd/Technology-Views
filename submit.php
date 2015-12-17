@@ -8,7 +8,7 @@
 			$choices[$answer]++;
 			$serialized = serialize($choices);
 			$query = $db->query("UPDATE data SET choices='$serialized' WHERE id=" . $row['id']);
-			header('Location: "results.php"');
+			header('Location: results.php');
 		}
 	}
 ?>
