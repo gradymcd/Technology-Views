@@ -11,7 +11,7 @@
 	$result = $db->query("SELECT * from data");
 
 	while ($row = $result->fetch_assoc()) {
-		echo('<h3>' . $row['question'] . '</h3><div>');
+		echo('<h4>' . $row['question'] . '</h4><div>');
 		$choices = unserialize($row['choices']);
 		$total = 0;
 		echo('<canvas id="canvas' . $row['id'] . '"></canvas>');

@@ -24,7 +24,7 @@
 		<?php
 			while ($row = $result->fetch_assoc()) {
 				echo('<div class="form-group">');
-				echo('<h3> ' . $row['question'] . ' </h3>');
+				echo('<h4> ' . $row['question'] . ' </h4>');
 				echo('<label for="' . $row['question'] . '"></label>');
 				$choices = unserialize($row['choices']);
 				foreach ($choices as $key => $value) {
