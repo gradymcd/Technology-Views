@@ -14,7 +14,7 @@
 				echo('<h3>' . $row['question'] . '</h3>');
 				$choices = unserialize($row['choices']);
 				foreach ($choices as $key => $value) {
-					echo('<p>' . $key . '</p>');
+					echo('<p>' . $key . ': ' . $value . '</p>');
 				}
 			}
 		?>
