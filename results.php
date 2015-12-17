@@ -38,7 +38,7 @@
 						$hue = rand(0, 255);
 						echo('
 							{
-								value: "' . $row['id'] . '",
+								value: "' . $value . '",
 								color: "hsla(' . $hue . ', 100%, 50%, .4)",
 								highlight: "hsla(' . $hue . ', 100%, 50%, 1)",
 								label: "' . $key . '",
