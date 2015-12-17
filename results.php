@@ -34,7 +34,7 @@
 			<?php
 				$result = $db->query("SELECT * from data");
 				while ($row = $result->fetch_assoc()) {
-					echo($row['question'] . 'Data={');
+					echo($row['id'] . 'Data={');
 					foreach ($choices as $key => $value) {
 						$hue = rand(0, 255);
 						echo('
@@ -53,8 +53,8 @@
 		<?php
 			 while ($row = $result->fetch_assoc()) {
 				echo('
-					var ' . $row['question'] . '  = document.getElementById("' . $row['question' ]. '").getContext("2d");
-					var ' . $row['question'] . 'Chart = new Chart(' . $row['question'] . ').Pie('.$row['question'] . 'Data);
+					var ' . $row['id'] . '  = document.getElementById("' . $row['id' ]. '").getContext("2d");
+					var ' . $row['id'] . 'Chart = new Chart(' . $row['id'] . ').Pie(' . $row['id'] . 'Data);
 				');
 			}
 		?>
