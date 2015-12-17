@@ -38,12 +38,12 @@
 					foreach ($choices as $key => $value) {
 						$hue = rand(0, 255);
 						echo('
-							{
+							[
 								value: "' . $key . '",
 								color: "hsla(' . $hue . ', 100%, 50%, .4)",
 								highlight: "hsla(' . $hue . ', 100%, 50%, 1)",
 								label: "' . $key . '",
-							},
+							],
 						');
 					}
 					echo('},');
