@@ -35,6 +35,7 @@
 				while ($row = $result->fetch_assoc()) {
 					echo('var data' . $row['id'] . '=[');
 					$oldHue = -1;
+					$choices = unserialize($row['choices']);
 					foreach ($choices as $key => $value) {
 						$hue = -1;
 						while((abs($oldHue-$hue) < 30) || $hue==-1) {
