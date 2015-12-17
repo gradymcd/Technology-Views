@@ -34,8 +34,13 @@
 				$result = $db->query("SELECT * from data");
 				while ($row = $result->fetch_assoc()) {
 					echo('var data' . $row['id'] . '=[');
+					$oldHue = -1;
 					foreach ($choices as $key => $value) {
-						$hue = rand(0, 255);
+						$hue = -1;
+						while(abs($oldHue-$hue) < 30) {
+							$hue = rand(0, 255);
+						}
+
 						echo('
 							{
 								value: "' . $value . '",
@@ -44,6 +49,7 @@
 								label: "' . $key . '",
 							},
 						');
+						$oldHue = $hue;
 					}
 					echo('];');
 				}
