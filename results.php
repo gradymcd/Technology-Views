@@ -18,7 +18,7 @@
 					$total += $value;
 				}
 				foreach ($choices as $key => $value) {
-					echo('<p>' . $key . ': ' . $value . ' ('. $value/$total . '%)</p>');
+					echo('<p>' . $key . ': ' . $value . ' (' . ($value / $total) * 100 . '%)</p>');
 				}
 			}
 		?>
