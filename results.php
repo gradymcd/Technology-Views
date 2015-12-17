@@ -11,7 +11,7 @@
 	$result = $db->query("SELECT * from data");
 
 	while ($row = $result->fetch_assoc()) {
-		echo('<h4>' . $row['question'] . '</h4><div>');
+		echo('<h4>' . $row['question'] . '</h4><div><ul>');
 		$choices = unserialize($row['choices']);
 		$total = 0;
 		echo('<canvas id="canvas' . $row['id'] . '"></canvas>');
@@ -19,10 +19,9 @@
 			$total += $value;
 		}
 		foreach ($choices as $key => $value) {
-			echo('<p>' . $key . ': ' . $value . ' (' . number_format(($value / $total) * 100) . '%)');
-			echo('</p>');
+			echo('<li>' . $key . ': ' . $value . ' (' . number_format(($value / $total) * 100) . '%)</li>');
 		}
-		echo('</div>');
+		echo('</ul></div>');
 	}
 	?>
 </div>
