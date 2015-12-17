@@ -1,4 +1,5 @@
 <?php
+	include('db.php');
 	$result = $db->query("SELECT * from `data`");
 	if (!empty($_POST)) {
 		while ($row = $result->fetch_assoc()) {
