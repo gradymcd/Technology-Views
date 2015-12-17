@@ -19,7 +19,7 @@
 				}
 				foreach ($choices as $key => $value) {
 					echo('<p>' . $key . ': ' . $value . ' (' . ($value / $total) * 100 . '%)');
-					echo('<canvas id="' . $row['question'] . $key . '"></canvas>');
+					echo('<canvas id="canvas' . $row['id'] . $key . '"></canvas>');
 					echo('</p>');
 				}
 				echo('</div>');
@@ -34,7 +34,7 @@
 			<?php
 				$result = $db->query("SELECT * from data");
 				while ($row = $result->fetch_assoc()) {
-					echo($row['id'] . 'Data={');
+					echo('data={' . $row['id']);
 					foreach ($choices as $key => $value) {
 						$hue = rand(0, 255);
 						echo('
@@ -53,8 +53,8 @@
 		<?php
 			 while ($row = $result->fetch_assoc()) {
 				echo('
-					var ' . $row['id'] . '  = document.getElementById("' . $row['id' ]. '").getContext("2d");
-					var ' . $row['id'] . 'Chart = new Chart(' . $row['id'] . ').Pie(' . $row['id'] . 'Data);
+					var canvas' . $row['id'] .  '  = document.getElementById(' . $row . $row['id' ]. '").getContext("2d");
+					var chart' . $row['id'] . '  = new Chart(canvas' . $row['id'] . ').Pie(data' . $row['id'] .');
 				');
 			}
 		?>
