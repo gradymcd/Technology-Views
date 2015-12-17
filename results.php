@@ -51,6 +51,7 @@
 			?>
 		];
 		<?php
+			$result = $db->query("SELECT * from data");
 			 while ($row = $result->fetch_assoc()) {
 				echo('
 					var canvas' . $row['id'] .  '  = document.getElementById(' . $row . $row['id' ]. '").getContext("2d");
